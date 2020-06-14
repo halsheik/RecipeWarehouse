@@ -1,6 +1,7 @@
 // Modules required to run the application
 const express = require('express');
 const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 // Creates 'mini app'
 const router = express.Router();
@@ -94,5 +95,21 @@ router.post('/register', function(req, res){
         });
     }
 });
+
+// Login Handle
+router.post('/login', function(req, res, next){
+    passport.authenticate('local', {
+        successRedirect: '/home',
+        failureRedirect: '/users/login',
+        failureFlash: false
+    })(req, res, next);
+});
+
+// Logout Handle
+router.get('/logout', function(req, res){
+    req.logout();
+    res.redirect('/users/login');
+});
+
 
 module.exports = router;

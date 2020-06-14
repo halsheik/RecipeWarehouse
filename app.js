@@ -4,12 +4,14 @@ const path = require('path');
 const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
+const passport = require('passport');
 
 // Creates an express application
 var app = express();
 
-// Database Config
-const db = require('./config/keys').MongoURI;
+// Config
+const db = require('./config/keys').MongoURI; // Database Config
+require('./config/passport')(passport); // Passport Config
 
 // Connect to Mongo
 mongoose.connect(db, { useNewUrlParser: true, useUnifiedTopology: true }) 
@@ -34,6 +36,10 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }));
+
+// Passport middleware
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Connect flash
 app.use(flash());

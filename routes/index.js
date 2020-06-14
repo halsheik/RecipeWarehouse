@@ -1,12 +1,9 @@
 // Modules required to run the application
 const express = require('express');
+const { ensureAuthenticated } = require('../config/auth');
 
 // Creates 'mini app'
 const router = express.Router();
-
-router.get('/', function(req, res){
-    res.render("./home/home");
-});
 
 // Homepage
 router.get('/home', function(req, res){
@@ -14,7 +11,7 @@ router.get('/home', function(req, res){
 });
 
 // About page
-router.get('/about', function(req, res){
+router.get('/about', /*ensureAuthenticated, */ function(req, res){
     res.render("./home/about");
 });
 
