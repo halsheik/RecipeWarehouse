@@ -2,29 +2,50 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Node Tutorial</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homemade</title>
 
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-
+    <link rel="stylesheet" type="text/css" href="/styles/navStyle.css">
 </head>
 <body>
-    <div class="navbar navbar-default  navbar-static-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/home">Node Tutorial</a>
-            </div>
+    <nav>
+        <label class="logo">Homemade</label>
 
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="/home">Home</a> </li>
-                <li><a href="/about">About</a> </li>
-                <li><a href="/users/login">Log In</a> </li>
-                <li><a href="/users/register">Sign Up</a> </li>
+        <nav class="dropDownMenu">
+            <button class="dropDownMenuButton">
+                <span class="dropDownMenuButtonBar"></span>
+                <span class="dropDownMenuButtonBar"></span>
+                <span class="dropDownMenuButtonBar"></span>
+            </button>
+        </nav>
+        
+        <div class="allLinks">
+            <ul class="siteLinks">
+                <li>
+                    <a href="/home">Home</a>
+                </li>
+                <li>
+                    <a href="#">My Recipes</a>
+                </li>
+                <li>
+                    <a href="/about">About Us</a>
+                </li>
+                <li>
+                    <a href="#">Contact Us</a>
+                </li>
+            </ul>
+            
+            <ul class="userLinks">
+                <li>
+                    <a href="/users/login">Login</a>
+                </li>
+                <li>
+                    <a class="active" href="/users/register">Sign Up</a>
+                </li>
             </ul>
         </div>
-    </div>
-
-    <div class="container">
-        
-    </div>
+    </nav>
+    
+    <script src="controls/navControl.js"></script>
 </body>
 </html>

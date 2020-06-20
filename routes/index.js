@@ -6,6 +6,11 @@ const { ensureAuthenticated } = require('../config/auth');
 const router = express.Router();
 
 // Homepage
+router.get('/', function(req, res){
+    res.render("./home/home");
+});
+
+// Homepage
 router.get('/home', function(req, res){
     res.render("./home/home");
 });

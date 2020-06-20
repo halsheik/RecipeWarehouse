@@ -44,6 +44,9 @@ app.use(passport.session());
 // Connect flash
 app.use(flash());
 
+// Allows express app access to CSS and JavaScript files
+app.use(express.static(path.join(__dirname, 'public')));
+
 // Route Files
 app.use('/', require('./routes/index')); // Module containing basic paths for application
 app.use('/users', require('./routes/users')); // Module containing paths for user login and registration
