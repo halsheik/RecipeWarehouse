@@ -26,17 +26,17 @@ router.post('/register', function(req, res){
 
     // Check required fields - make sure all values are inputted
     if(!name || !email || !password || !password2){
-        errors.push({ msg: 'Please fill in all feilds' });
+        errors.push({ msg: 'Please fill in all fields.' });
     }
 
     //Check passwords match
     if(password !== password2){
-        errors.push({ msg: "Passwords do not match" });
+        errors.push({ msg: "Passwords do not match." });
     }
 
     // Check password length
     if(password.length < 6){
-        errors.push({ msg: "Password should be at least six characters long" });
+        errors.push({ msg: "Password should be at least six characters long." });
     }
 
     // Checks for any errors and prevents registration/redirection
@@ -55,7 +55,7 @@ router.post('/register', function(req, res){
         .then(function(user){
             if(user){
                 // User already exists
-                errors.push({ msg: "Email is already registered" });
+                errors.push({ msg: "Email is already registered." });
 
                 // Reroutes to registration page
                 res.render('./home/register', {
@@ -84,7 +84,7 @@ router.post('/register', function(req, res){
                         newUser.password = hash;
 
                         // Saves password to mongoDB database
-                        newUser.save().then(function(user){
+                        newUser.save().then(function(){
                             res.redirect('/users/login');
                         }).catch(function(err){
                             console.log(err);
@@ -99,7 +99,7 @@ router.post('/register', function(req, res){
 // Login Handle
 router.post('/login', function(req, res, next){
     passport.authenticate('local', {
-        successRedirect: '/home',
+        successRedirect: '/',
         failureRedirect: '/users/login',
         failureFlash: false
     })(req, res, next);
@@ -108,7 +108,7 @@ router.post('/login', function(req, res, next){
 // Logout Handle
 router.get('/logout', function(req, res){
     req.logout();
-    res.redirect('/users/login');
+    res.redirect('/');
 });
 
 

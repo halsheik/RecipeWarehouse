@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homemade</title>
 
-    <link rel="stylesheet" type="text/css" href="styles/navStyle.css">
+    <link rel="stylesheet" href="/styles/navStyle.css">
 </head>
 <body>
-    <nav>
-        <label class="logo">Homemade</label>
+    <nav class="mainNav">
+        <label class="logo"><a href="/">Homemade</a></label>
 
         <nav class="dropDownMenu">
             <button class="dropDownMenuButton">
@@ -23,32 +23,37 @@
             
             <ul class="siteLinks">
                 <li>
-                    <a href="/home">Home</a>
-                </li>
-                <li>
-                    <a href="#">My Recipes</a>
+                    <a href="/recipes/myRecipes">My Recipes</a>
                 </li>
                 <li>
                     <a href="/about">About Us</a>
                 </li>
                 <li>
-                    <a href="#">Contact Us</a>
+                    <a href="/contactUs">Contact Us</a>
                 </li>
             </ul>
             
             <ul class="userLinks">
-                <li>
-                    <a href="/users/login">Login</a>
-                </li>
-                <li>
-                    <a class="active" href="/users/register">Sign Up</a>
-                </li>
+                <% if(user){ %>
+                    <li>
+                        <a>Welcome, <%= user.name %>!</a>
+                    </li>
+                    <li>
+                        <a href="/users/logout">Logout</a>
+                    </li>
+                <% } else { %>
+                    <li>
+                        <a href="/users/login">Login</a>
+                    </li>
+                    <li>
+                        <a class="active" href="/users/register">Sign Up</a>
+                    </li>
+                <% } %>
             </ul>
 
         </div>
-        
     </nav>
     
-    <script src="controls/navControl.js"></script>
+    <script src="/controls/navControl.js"></script>
 </body>
 </html>

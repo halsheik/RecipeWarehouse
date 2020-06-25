@@ -47,9 +47,16 @@ app.use(flash());
 // Allows express app access to CSS and JavaScript files
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Allows for access to user information after login
+app.use(function(req, res, next){
+    res.locals.user = req.user || null;
+    next();
+});
+
 // Route Files
 app.use('/', require('./routes/index')); // Module containing basic paths for application
 app.use('/users', require('./routes/users')); // Module containing paths for user login and registration
+app.use('/recipes', require('./routes/recipes')); // Module containing paths for user user recipes
 
 app.listen(app.get("port"), function(){
     console.log(`Listening to server on port ${app.get("port")}...`);

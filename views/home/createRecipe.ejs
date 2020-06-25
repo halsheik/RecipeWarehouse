@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homemade</title>
+
+    <link rel="stylesheet" href="/styles/userStyle.css">
+</head>
+<body>
+    <div class="newRecipeContainer">
+        <form action="/recipes/createRecipe" method="POST">
+            <div class="newRecipeOption">
+                <label class="newRecipeOptionLabel">Title</label>
+                <input type="text" name="recipeName" value="<%= typeof name != 'undefined' ? recipeName : '' %>">
+            </div>
+            <div class="newRecipeOption">
+                <label class="newRecipeOptionLabel">Directions</label>
+                <textarea name="directions" value="<%= typeof name != 'undefined' ? directions : '' %>"></textarea>
+            </div>
+
+            <button class="createRecipeButton" type="submit">Create Recipe</button>
+        </form>
+    </div>
+</body>
+</html>

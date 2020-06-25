@@ -1,0 +1,16 @@
+<%- include('../_partial/_header'); -%>
+
+    <h1>Welcome to myrecipes page</h1> 
+    <h1>Welcome to myrecipes page</h1> 
+    <h1>Welcome to myrecipes page</h1> 
+    <h1>Welcome to myrecipes page</h1> 
+    <a href="/recipes/createRecipe">addRecipe</a>
+
+    <% recipes.forEach(function(recipe){ %>
+        <% if(recipe.author == user._id){ %>
+            <a> <%= recipe.recipeName %> </a>
+        <% } %>
+    <% }); %>
+
+
+<%- include('../_partial/_footer'); -%>

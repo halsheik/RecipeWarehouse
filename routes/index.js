@@ -10,14 +10,14 @@ router.get('/', function(req, res){
     res.render("./home/home");
 });
 
-// Homepage
-router.get('/home', function(req, res){
-    res.render("./home/home");
-});
-
 // About page
 router.get('/about', /*ensureAuthenticated, */ function(req, res){
     res.render("./home/about");
+});
+
+// Contact Us page
+router.get('/contactUs', /*ensureAuthenticated, */ function(req, res){
+    res.render("./home/contactUs");
 });
 
 module.exports = router;
