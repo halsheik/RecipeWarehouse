@@ -15,7 +15,9 @@ router.get('/myRecipes', ensureAuthenticated, function(req, res){
           console.log(err);
         } else {
           res.render('./home/myRecipes', {
-            recipes: recipes
+            recipes: recipes,
+            ingredients: recipes.ingredients,
+            directions: recipes.directions
           });
         }
       });
@@ -27,12 +29,12 @@ router.get('/createRecipe', ensureAuthenticated, function(req, res){
 });
 
 // Create Recipe
-router.post('/createRecipe', function(req, res){
-    const { recipeName, directions } = req.body;
+router.post('/createRecipe',  ensureAuthenticated, function(req, res){
+    const { recipeName, ingredients, directions } = req.body;
     let errors = [];
 
     // Chekcs that all fields are not empty
-    if(!recipeName || !directions){
+    if(!recipeName || !ingredients || !directions){
         errors.push({ msg: 'Please fill in all fields.' });
     }
 
@@ -41,6 +43,7 @@ router.post('/createRecipe', function(req, res){
         res.render('./home/createRecipe', {
             errors,
             recipeName,
+            ingredients,
             directions
         });
     } else {
@@ -48,9 +51,10 @@ router.post('/createRecipe', function(req, res){
         const newRecipe = new Recipe({
             recipeName: recipeName,
             author: req.user._id,
+            ingredients: ingredients,
             directions: directions,
         }); 
--
+
         // Saves recipe to mongoDB database
         newRecipe.save().then(function(){
             res.redirect('/recipes/myRecipes');

@@ -4,23 +4,46 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homemade</title>
-
-    <link rel="stylesheet" href="/styles/userStyle.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 <body>
     <div class="newRecipeContainer">
         <form action="/recipes/createRecipe" method="POST">
-            <div class="newRecipeOption">
-                <label class="newRecipeOptionLabel">Title</label>
-                <input type="text" name="recipeName" value="<%= typeof name != 'undefined' ? recipeName : '' %>">
+            <div class="recipeNameContainer">
+                <label class="recipeNameLabel">Title</label>
+                <input type="text" name="recipeName">
             </div>
-            <div class="newRecipeOption">
-                <label class="newRecipeOptionLabel">Directions</label>
-                <textarea name="directions" value="<%= typeof name != 'undefined' ? directions : '' %>"></textarea>
+
+            <!--<div class="recipeImage">
+                <input type="file" accept="image/*" onchange="validateImageFile(this);"/> 
+            </div> -->
+
+            <div class="ingredientsContainer">
+                <button class="addIngredientButton" type="button" @click="addIngredientForm">Add Another Ingredient</button>
+        
+                <div class="allIngredients" v-for="(ingredient, ingredientIndex) in ingredients">
+                    <label class="ingredient">{{ ingredientIndex + 1 }}.)</label>
+                    <input type="text" name="ingredients" v-model="ingredient.ingredient">
+                    
+                    <button class="deleteIngredientButton" type="button" v-if="ingredientIndex > 0" @click="deleteIngredientForm(ingredientIndex)">Delete Ingredient</button>
+                </div>
+            </div>
+
+            <div class="directionsContainer">
+                <button class="addDirectionButton" type="button" @click="addDirectionForm">Add Another Direction</button>
+        
+                <div class="allDirections" v-for="(direction, directionIndex) in directions">
+                    <label class="direction">{{ directionIndex + 1 }}.)</label>
+                    <input type="text" name="directions" v-model="direction.direction">
+                    
+                    <button class="deleteDirectionButton" type="button" v-if="directionIndex > 0" @click="deleteDirectionForm(directionIndex)">Delete Direction</button>
+                </div>
             </div>
 
             <button class="createRecipeButton" type="submit">Create Recipe</button>
         </form>
     </div>
+
+    <script src="/controls/newRecipeControl.js"></script>
 </body>
 </html>

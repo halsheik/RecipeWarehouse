@@ -8,7 +8,13 @@
 
     <% recipes.forEach(function(recipe){ %>
         <% if(recipe.author == user._id){ %>
+            <br>
             <a> <%= recipe.recipeName %> </a>
+            <br>
+            
+            <% recipe.directions.forEach(function(direction){ %>
+                <a><%= direction %></a>
+            <% }); %>
         <% } %>
     <% }); %>
 
