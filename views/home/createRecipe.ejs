@@ -8,15 +8,20 @@
 </head>
 <body>
     <div class="newRecipeContainer">
-        <form action="/recipes/createRecipe" method="POST">
+        <form action="/recipes/createRecipe" method="POST" enctype="multipart/form-data">
             <div class="recipeNameContainer">
                 <label class="recipeNameLabel">Title</label>
                 <input type="text" name="recipeName">
             </div>
 
-            <!--<div class="recipeImage">
-                <input type="file" accept="image/*" onchange="validateImageFile(this);"/> 
-            </div> -->
+            <div class="recipeImage">
+                <input type="file" accept="image/*" name="recipeImage" onchange="validateImageFile(this);"/> 
+            </div>
+
+            <div class="recipeDescription">
+                <label class="recipeDescriptionLabel">Description</label>
+                <textarea name="recipeDescription" cols="30" rows="10"></textarea>
+            </div>
 
             <div class="ingredientsContainer">
                 <button class="addIngredientButton" type="button" @click="addIngredientForm">Add Another Ingredient</button>

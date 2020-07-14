@@ -15,6 +15,9 @@
             <% recipe.directions.forEach(function(direction){ %>
                 <a><%= direction %></a>
             <% }); %>
+
+            <img src="/uploads/<%= recipe.recipeImageFileName %>"/>
+            
         <% } %>
     <% }); %>
 

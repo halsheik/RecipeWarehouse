@@ -1,2 +1,2 @@
-Check how to properly put together Vuejs for both dynamic inputs in form
-Figure out how to save an image as an input to mongoDB (fixing model too)
+Check how to properly put together Vuejs for both dynamic inputs in form -- ?
+fix images being saved when form iinput is incorrect

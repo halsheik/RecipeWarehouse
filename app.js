@@ -5,6 +5,7 @@ const mongoose = require('mongoose');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
+const bodyParser = require('body-parser');
 
 // Creates an express application
 var app = express();
@@ -29,6 +30,7 @@ app.set("view engine", "ejs");
 // Bodyparser - urlencoded() is used to recognize incoming Request Object as strings or arrays
 // Specifically to help with POST and PUT Requrests
 app.use(express.urlencoded({ extended: false })); // 'extended' has to do with whether or not a nested object can be used ('false' means it cannot)
+app.use(bodyParser.json());
 
 // Express session middleware
 app.use(session({
@@ -44,8 +46,8 @@ app.use(passport.session());
 // Connect flash
 app.use(flash());
 
-// Allows express app access to CSS and JavaScript files
-app.use(express.static(path.join(__dirname, 'public')));
+// Allows express app access to files in public folder
+app.use( express.static( "public" ) );
 
 // Allows for access to user information after login
 app.use(function(req, res, next){
