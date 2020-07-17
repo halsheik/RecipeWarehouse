@@ -1,0 +1,107 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+#recipesContainer{
+    /* positioning of container */
+    position: absolute;
+    top: 65px;
+    margin: 0% 5% 0% 5%;
+    z-index: -10;
+}
+
+#myRecipesContainer{
+    /* style of items within container */
+    display: flex;
+    align-items: center;
+
+    /* positioning of container */
+    margin: 12px 12px 6px 12px;
+}
+
+#myRecipesLabel{
+    /* style of items within container */
+    font-size: 24px;
+}
+
+#newRecipeButton{
+    /* positioning of container */
+    margin-left: 16px;
+    background: rgb(248, 166, 89);
+    color: rgb(255, 255, 255);
+    padding: 9px 10px;
+    border-radius: 3px;
+}
+
+#allRecipes{
+    /* positioning within container */
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.secondaryContainer{
+    /* positioning of container */
+    display: inline-block;
+    max-width: calc(100% / 4);
+    padding: 6px;
+}
+
+.recipeContainerIndv{
+    /* style of container */
+    background-color: white;
+    border: solid;
+    border-color: rgb(241, 241, 241);
+    border-radius: 12px;
+    border-width: 1px;
+}
+
+.recipeContainerIndv img{
+    display: block;
+    border-radius: 12px 12px 0px 0px;
+    width: 100%;
+}
+
+.recipeContainerIndv .recipeTitle{
+    /* positioning of container */
+    display: flex;
+    width: 100%;
+    height: 5vw;
+    align-items: center;
+    justify-content: center;
+
+    /* style of items within container */
+    text-align: center;
+    font-size: 2vw;
+}
+
+/* animations */
+#recipesContainer #myRecipesContainer #newRecipeButton:hover{
+    background: rgb(255, 142, 36);
+    transition: .5s;
+}
+
+
+@media (max-width: 1200px){
+    .secondaryContainer{
+        /* positioning of container */
+        max-width: calc(100% / 3);
+    }
+}
+
+@media (max-width: 750px){
+    .secondaryContainer{
+        /* positioning of container */
+        max-width: calc(100% / 2);
+    }
+}
+
+@media (max-width: 400px){
+    .secondaryContainer{
+        /* positioning of container */
+        max-width: calc(100% / 1);
+    }
+}
