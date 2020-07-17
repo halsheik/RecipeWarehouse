@@ -1,53 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homemade</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-</head>
-<body>
-    <div class="newRecipeContainer">
-        <form action="/recipes/createRecipe" method="POST" enctype="multipart/form-data">
-            <div class="recipeNameContainer">
-                <label class="recipeNameLabel">Title</label>
-                <input type="text" name="recipeName">
-            </div>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homemade</title>
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 
-            <div class="recipeImage">
-                <input type="file" accept="image/*" name="recipeImage" onchange="validateImageFile(this);"/> 
-            </div>
+        <link rel="stylesheet" href="/styles/createRecipeStyle.css">
+    </head>
+    <body>
+        <div id="newRecipeContainer">
+            <form action="/recipes/createRecipe" method="POST" enctype="multipart/form-data">
+                <label id="formSubHeading">Create Your Homemade Recipe</label>
 
-            <div class="recipeDescription">
-                <label class="recipeDescriptionLabel">Description</label>
-                <textarea name="recipeDescription" cols="30" rows="10"></textarea>
-            </div>
-
-            <div class="ingredientsContainer">
-                <button class="addIngredientButton" type="button" @click="addIngredientForm">Add Another Ingredient</button>
-        
-                <div class="allIngredients" v-for="(ingredient, ingredientIndex) in ingredients">
-                    <label class="ingredient">{{ ingredientIndex + 1 }}.)</label>
-                    <input type="text" name="ingredients" v-model="ingredient.ingredient">
-                    
-                    <button class="deleteIngredientButton" type="button" v-if="ingredientIndex > 0" @click="deleteIngredientForm(ingredientIndex)">Delete Ingredient</button>
+                <div id="recipeNameContainer">
+                    <label id="recipeNameLabel">Title</label>
+                    <input id="recipeNameInput" type="text" name="recipeName">
                 </div>
-            </div>
 
-            <div class="directionsContainer">
-                <button class="addDirectionButton" type="button" @click="addDirectionForm">Add Another Direction</button>
-        
-                <div class="allDirections" v-for="(direction, directionIndex) in directions">
-                    <label class="direction">{{ directionIndex + 1 }}.)</label>
-                    <input type="text" name="directions" v-model="direction.direction">
-                    
-                    <button class="deleteDirectionButton" type="button" v-if="directionIndex > 0" @click="deleteDirectionForm(directionIndex)">Delete Direction</button>
+                <div id="recipeImage">
+                    <label id="recipeImageLabel">Add An Image of Your Meal</label>
+                    <input id="recipeImageInput" type="file" accept="image/*" name="recipeImage" onchange="validateImageFile(this);"/> 
+                    <label id="recipeImageInputLabel" for="recipeImageInput">Choose A File</label>
                 </div>
-            </div>
 
-            <button class="createRecipeButton" type="submit">Create Recipe</button>
-        </form>
-    </div>
+                <div id="recipeDescription">
+                    <label id="recipeDescriptionLabel">Description</label>
+                    <textarea id="recipeDescriptionInput" name="recipeDescription" cols="30" rows="10" maxlength="2000"></textarea>
+                </div>
 
-    <script src="/controls/newRecipeControl.js"></script>
-    <script src="/controls/imageValidator.js"></script>
+                <div class="ingredientsContainer">
+                    <label id="ingredientsLabel">Ingredients</label>
+                    <button id="addIngredientButton" type="button" @click="addIngredientForm">Add Another Ingredient</button>
+            
+                    <div class="allIngredients" v-for="(ingredient, ingredientIndex) in ingredients">
+                        <label class="ingredientLabel">{{ ingredientIndex + 1 }}.)</label>
+                        <input class="ingredientInput" type="text" name="ingredients" v-model="ingredient.ingredient">
+                        
+                        <button class="deleteIngredientButton" type="button" v-if="ingredientIndex > 0" @click="deleteIngredientForm(ingredientIndex)">X</button>
+                    </div>
+                </div>
+
+                <div class="directionsContainer">
+                    <label id="directionsLabel">Directions</label>
+                    <button id="addDirectionButton" type="button" @click="addDirectionForm">Add Another Direction</button>
+            
+                    <div class="allDirections" v-for="(direction, directionIndex) in directions">
+                        <label class="directionLabel">{{ directionIndex + 1 }}.)</label>
+                        <input class="directionInput"type="text" name="directions" v-model="direction.direction">
+                        
+                        <button class="deleteDirectionButton" type="button" v-if="directionIndex > 0" @click="deleteDirectionForm(directionIndex)">X</button>
+                    </div>
+                </div>
+                
+                <div id="createRecipeButtonContainer">
+                    <button id="createRecipeButton" type="submit">Create Recipe</button>
+                </div>
+                
+            </form>
+        </div>
+
+        <script src="/controls/newRecipeControl.js"></script>
+        <script src="/controls/imageValidator.js"></script>
+    </body>
+</html>

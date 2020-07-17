@@ -30,6 +30,8 @@
 #newRecipeButton{
     /* positioning of container */
     margin-left: 16px;
+
+    /* styling of container */
     background: rgb(248, 166, 89);
     color: rgb(255, 255, 255);
     padding: 9px 10px;

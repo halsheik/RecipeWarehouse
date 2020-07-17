@@ -1,0 +1,338 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+
+#newRecipeContainer{
+    /* positioning of container */
+    position: relative;
+    width: 80vw;
+    left: 10%;
+    top: 77px;
+    margin-bottom: 77px;
+
+    /* Style within form */
+    padding: 25px 20px;
+    background: rgb(255, 255, 255);
+ 
+    /* Border around the form */
+    border: solid;
+    border-color: rgb(201, 201, 201);
+    border-width: 1px;
+    border-radius: 2%;
+}
+
+#formSubHeading{
+    /* positioning of label */
+    display: block;
+    margin-bottom: 8px;
+
+    /* style within container */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#recipeNameContainer{
+    /* postioning of container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+#recipeNameContainer #recipeNameLabel{
+    /* positioning of label */
+    display: block;
+    margin-right: 8px;
+
+    /* style within container */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#recipeNameContainer #recipeNameInput{
+    /* Positioning of labels */
+    display: block;
+    border-radius: 5px;
+
+    /* Style within label */
+    width: 100%;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(201, 201, 201);
+    font-size: 16px;
+}
+
+#recipeImage{
+    /* postioning of container */
+    display: inline-flex;
+    flex-direction: column;
+    align-items: left;
+    margin-bottom: 16px;
+}
+
+#recipeImage #recipeImageLabel{
+    /* positioning of label */
+    display: block;
+    margin-bottom: 8px;
+
+    /* style within container */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+#recipeImageInput{
+    /* Hides the 'UGLY' input file button */
+    display: none;
+}
+
+#recipeImageInputLabel{
+    /* positioning of label */
+    display: block;
+
+    /* styling of container */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(248, 166, 89);
+    padding: 9px 10px;
+    border-radius: 3px;
+}
+
+#recipeDescription{
+    /* postioning of container */
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+#recipeDescription #recipeDescriptionLabel{
+    /* positioning of label */
+    display: block;
+    margin-bottom: 8px;
+
+    /* style within container */
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+#recipeDescription #recipeDescriptionInput{
+    /* Positioning of textarea */
+    display: block;
+    border-radius: 5px;
+
+    /* style of textarea */
+    outline: none;
+    resize: none;
+    overflow: auto;
+
+    /* Style within textarea */
+    width: 100%;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(201, 201, 201);
+    font-size: 16px;
+}
+
+.ingredientsContainer{
+    /* postioning of container */
+    display: block;
+    margin-bottom: 16px;
+}
+
+.ingredientsContainer #ingredientsLabel{
+    /* positioning of label */
+    display: inline-block;
+
+    /* style within container */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.ingredientsContainer #addIngredientButton{
+    /* positioning of container */
+    display: inline-block;
+    margin-left: 8px;
+
+    /* styling of container */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(248, 166, 89);
+    border: none;
+    padding: 9px 10px;
+    border-radius: 3px;
+    box-shadow: inset 0 2px 5px rgb(250, 183, 120);
+    outline: none;
+}
+
+.ingredientsContainer .allIngredients{
+    /* positioning of container */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.ingredientsContainer .ingredientLabel{
+    /* positioning of container */
+    display: block;
+    margin-right: 8px;
+
+    /* style within container */
+    font-size: 16px;
+}
+
+.ingredientsContainer .ingredientInput{
+    /* Positioning of labels */
+    display: block;
+    border-radius: 5px;
+
+    /* Style within label */
+    width: 50vw;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(201, 201, 201);
+    font-size: 16px;
+}
+
+.ingredientsContainer .deleteIngredientButton{
+    /* positioning of container */
+    display: inline-block;
+    margin-left: 8px;
+
+    /* styling of container */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(248, 166, 89);
+    border: none;
+    padding: 7.5px 10px;
+    border-radius: 3px;
+    box-shadow: inset 0 2px 5px rgb(250, 183, 120);
+    outline: none;
+}
+
+.directionsContainer{
+    /* postioning of container */
+    display: block;
+    margin-bottom: 16px;
+}
+
+.directionsContainer #directionsLabel{
+    /* positioning of label */
+    display: inline-block;
+
+    /* style within container */
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.directionsContainer #addDirectionButton{
+    /* positioning of container */
+    display: inline-block;
+    margin-left: 16px;
+
+    /* styling of container */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(248, 166, 89);
+    border: none;
+    padding: 9px 13px;
+    border-radius: 3px;
+    box-shadow: inset 0 2px 5px rgb(250, 183, 120);
+    outline: none;
+}
+
+.directionsContainer .allDirections{
+    /* positioning of container */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.directionsContainer .allDirections{
+    /* positioning of container */
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin-top: 8px;
+}
+
+.directionsContainer .directionLabel{
+    /* positioning of container */
+    display: block;
+    margin-right: 8px;
+
+    /* style within container */
+    font-size: 16px;
+}
+
+.directionsContainer .directionInput{
+    /* Positioning of labels */
+    display: block;
+    border-radius: 5px;
+
+    /* Style within label */
+    width: 50vw;
+    padding: 5px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(201, 201, 201);
+    font-size: 16px;
+}
+
+.directionsContainer .deleteDirectionButton{
+    /* positioning of container */
+    display: inline-block;
+    margin-left: 8px;
+
+    /* styling of container */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(248, 166, 89);
+    border: none;
+    padding: 7.5px 10px;
+    border-radius: 3px;
+    box-shadow: inset 0 2px 5px rgb(250, 183, 120);
+    outline: none;
+}
+
+#createRecipeButtonContainer{
+    /* positioning of container */
+    display: flex;
+    justify-content: center;
+}
+
+#createRecipeButton{
+    /* positioning of container */
+    display: block;
+    width: 100%;
+
+    /* styling of container */
+    text-align: center;
+    color: rgb(255, 255, 255);
+    background: rgb(248, 166, 89);
+    border: none;
+    padding: 7.5px 10px;
+    border-radius: 3px;
+    box-shadow: inset 0 2px 5px rgb(250, 183, 120);
+    outline: none;
+}
+
+/* animations */
+#recipeImageInputLabel:hover{
+    background: rgb(255, 142, 36);
+    transition: .5s;
+}
+
+
+
+
+
+
