@@ -47,11 +47,6 @@ router.get('/myRecipes', ensureAuthenticated, function(req, res){
       });
 });
 
-// Create Recipe Page
-router.get('/createRecipe', ensureAuthenticated, function(req, res){
-    res.render('./home/createRecipe');
-});
-
 // Create Recipe
 router.post('/createRecipe', upload.single('recipeImage'), ensureAuthenticated, function(req, res){
     const { recipeName, recipeDescription, ingredients, directions } = req.body;

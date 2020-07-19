@@ -41,3 +41,24 @@ const ingredientsControl = new Vue({
             }
         }
 })
+
+const toggleNewRecipeForm = function(){
+    const newRecipeButton = document.querySelector('#newRecipeButton');
+    const newRecipeContainer = document.querySelector('#newRecipeContainer');
+    const closeButton = document.querySelector('#closeButton');
+    const overlay = document.querySelector('.overlay');
+
+    // Open dropDownMenu
+    newRecipeButton.addEventListener('click', function(){
+        newRecipeContainer.style.display = 'block';
+        overlay.classList.toggle('addOverlay');
+    });
+
+    // Close dropDownMenu
+    closeButton.addEventListener('click', function(){
+        newRecipeContainer.style.display = 'none';
+        overlay.classList.toggle('addOverlay');
+    });
+}
+
+toggleNewRecipeForm();

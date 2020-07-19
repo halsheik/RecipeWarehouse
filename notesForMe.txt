@@ -2,3 +2,4 @@ Check how to properly put together Vuejs for both dynamic inputs in form -- ?
 fix images being saved when form input is incorrect
 fix side navigation menu dropdown menu animation
 fix image sizing in my recipes menu
+fix overscrolling when opening creating new recipe form
