@@ -1,4 +1,6 @@
-*{
+*,
+*:before,
+*:after{
     padding: 0px;
     margin: 0px;
     text-decoration: none;
@@ -40,16 +42,16 @@
 
 #allRecipes{
     /* positioning within container */
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
+    column-count: 4;
+    margin: 1.5em auto;
+    column-gap: 1em;
 }
 
 .secondaryContainer{
     /* positioning of container */
     display: inline-block;
-    max-width: calc(100% / 4);
-    padding: 6px;
+    width: 100%;
+    margin: 0 0 1em;
 }
 
 .recipeContainerIndv{
@@ -88,22 +90,22 @@
 
 
 @media (max-width: 1200px){
-    .secondaryContainer{
-        /* positioning of container */
-        max-width: calc(100% / 3);
+    #allRecipes{
+        /* positioning within container */
+        column-count: 3;
     }
 }
 
 @media (max-width: 750px){
-    .secondaryContainer{
-        /* positioning of container */
-        max-width: calc(100% / 2);
+    #allRecipes{
+        /* positioning within container */
+        column-count: 2;
     }
 }
 
 @media (max-width: 400px){
-    .secondaryContainer{
-        /* positioning of container */
-        max-width: calc(100% / 1);
+    #allRecipes{
+        /* positioning within container */
+        column-count: 1;
     }
 }
