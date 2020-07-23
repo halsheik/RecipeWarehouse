@@ -1,82 +1,24 @@
 <%- include('../_partial/_header'); -%>
-    <div id="newRecipeContainer">
-        <div class="overlay"></div>
-        
-        <div id="closeButtonContainer">
-            <div id="closeButton">+</div>
-        </div>
-
-        <form action="/recipes/createRecipe" method="POST" enctype="multipart/form-data">
-            <label id="formSubHeading">Create Your Homemade Recipe</label>
-
-            <div id="recipeNameContainer">
-                <label id="recipeNameLabel">Title</label>
-                <input id="recipeNameInput" type="text" name="recipeName">
-            </div>
-
-            <div id="recipeImage">
-                <label id="recipeImageLabel">Add An Image of Your Meal</label>
-                <input id="recipeImageInput" type="file" accept="image/*" name="recipeImage" onchange="validateImageFile(this);"/> 
-                <label id="recipeImageInputLabel" for="recipeImageInput">Choose A File</label>
-            </div>
-
-            <div id="recipeDescription">
-                <label id="recipeDescriptionLabel">Description</label>
-                <textarea id="recipeDescriptionInput" name="recipeDescription" cols="30" rows="10" maxlength="2000"></textarea>
-            </div>
-
-            <div class="ingredientsContainer">
-                <label id="ingredientsLabel">Ingredients</label>
-                <button id="addIngredientButton" type="button" @click="addIngredientForm">Add Another Ingredient</button>
-        
-                <div class="allIngredients" v-for="(ingredient, ingredientIndex) in ingredients">
-                    <label class="ingredientLabel">{{ ingredientIndex + 1 }}.)</label>
-                    <input class="ingredientInput" type="text" name="ingredients" v-model="ingredient.ingredient">
-                    
-                    <button class="deleteIngredientButton" type="button" v-if="ingredientIndex > 0" @click="deleteIngredientForm(ingredientIndex)">X</button>
-                </div>
-            </div>
-
-            <div class="directionsContainer">
-                <label id="directionsLabel">Directions</label>
-                <button id="addDirectionButton" type="button" @click="addDirectionForm">Add Another Direction</button>
-        
-                <div class="allDirections" v-for="(direction, directionIndex) in directions">
-                    <label class="directionLabel">{{ directionIndex + 1 }}.)</label>
-                    <input class="directionInput"type="text" name="directions" v-model="direction.direction">
-                    
-                    <button class="deleteDirectionButton" type="button" v-if="directionIndex > 0" @click="deleteDirectionForm(directionIndex)">X</button>
-                </div>
-            </div>
-            
-            <div id="createRecipeButtonContainer">
-                <button id="createRecipeButton" type="submit">Create Recipe</button>
-            </div>
-            
-        </form>
-    </div>
-
     <div id="recipesContainer">
         <div id="myRecipesContainer">
             <label id="myRecipesLabel">My Recipes</label> 
     
-            <a href="#" id="newRecipeButton">+ Create New Recipe</a>
+            <a href="/recipes/createRecipe" id="newRecipeButton">+ Create New Recipe</a>
         </div>
         
         <div id="allRecipes">
+            <a><%=recipes.author%></a>
             <% recipes.forEach(function(recipe){ %>
                 <% if(recipe.author == user._id){ %>
-                    <div class="secondaryContainer">
-                        <div class="recipeContainerIndv">
-                            <img src="/uploads/<%= recipe.recipeImageFileName %>"/>
-            
-                            <a class="recipeTitle"> <%= recipe.recipeName %> </a>
-                            <!-- <% recipe.directions.forEach(function(direction){ %>
-                                <a><%= direction %></a>
-                            <% }); %> -->
+                    <a href="/recipes/<%= recipe._id %>">
+                        <div class="secondaryContainer">
+                            <div class="recipeContainerIndv">
+                                <img src="/uploads/<%= recipe.recipeImageFileName %>"/>
+    
+                                <a class="recipeTitle"> <%= recipe.recipeName %> </a>
+                            </div>
                         </div>
-                    </div>
-                    
+                    </a>
                 <% } %>
             <% }); %>
         </div>

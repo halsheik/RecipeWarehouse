@@ -37,14 +37,15 @@ router.get('/myRecipes', ensureAuthenticated, function(req, res){
           console.log(err);
         } else {
           res.render('./home/myRecipes', {
-            recipes: recipes,
-            recipeImageFileName: recipes.recipeImageFileName,
-            recipeDescription: recipes.recipeDescription,
-            ingredients: recipes.ingredients,
-            directions: recipes.directions
+            recipes: recipes
           });
         }
       });
+});
+
+// My Recipes
+router.get('/createRecipe', ensureAuthenticated, function(req, res){
+    res.render('./home/createRecipe');
 });
 
 // Create Recipe
@@ -64,7 +65,7 @@ router.post('/createRecipe', upload.single('recipeImage'), ensureAuthenticated, 
 
     // Checks for any errors and prevents recipe creation if any
     if(errors.length > 0){
-        console.log(errors);
+        // Displays create Recipe form along with errors
         res.render('./home/createRecipe', {
             errors
         });
@@ -88,7 +89,21 @@ router.post('/createRecipe', upload.single('recipeImage'), ensureAuthenticated, 
             console.log(err);
         });
     }
-
 });
+
+// Get Single Recipe
+router.get('/:id', function(req, res){
+    // Searches for a 'Recipe' with a unique 'id'
+    Recipe.findById(req.params.id, function(err, recipe){
+        if(err){
+            throw err;
+        }
+
+        // Renders the Recipe in its own page with full information
+        res.render('./home/recipe.ejs', {
+            recipe: recipe
+        });
+    });
+  });
 
 module.exports = router;

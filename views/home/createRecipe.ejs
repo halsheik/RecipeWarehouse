@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Homemade</title>
-        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<%- include('../_partial/_header'); -%>
 
-        <link rel="stylesheet" href="/styles/createRecipeStyle.css">
-    </head>
-    <body>
         <div id="newRecipeContainer">
             <div id="closeButtonContainer">
                 <div id="closeButton">+</div>
@@ -67,5 +58,5 @@
 
         <script src="/controls/newRecipeControl.js"></script>
         <script src="/controls/imageValidator.js"></script>
-    </body>
-</html>
+
+<%- include('../_partial/_footer'); -%>

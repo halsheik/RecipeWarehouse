@@ -16,12 +16,12 @@
 
 #newRecipeContainer{
     /* positioning of container */
-    display: none;
     position: relative;
     width: 80vw;
     left: 10%;
     top: 77px;
     margin-bottom: 77px;
+    z-index: 0;
 
     /* Style within form */
     padding: 25px 20px;
@@ -358,12 +358,3 @@
     background: rgb(255, 142, 36);
     transition: .5s;
 }
-
-#showModale{
-    display: absolute;
-}
-
-.addOverlay{
-    display: block;
-}
-
