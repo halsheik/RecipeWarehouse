@@ -7,7 +7,7 @@ const router = express.Router();
 
 // Homepage
 router.get('/', function(req, res){
-    res.render("./home/home");
+    res.render("./home/index");
 });
 
 // About page

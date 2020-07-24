@@ -1,0 +1,315 @@
+/* Default Styles */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+/* colors used within website */
+:root{
+    --site-themed-color: rgb(248, 166, 89);
+    --slight-body-shade: rgb(245, 245, 245);
+    --site-links-color: rgb(102, 102, 102);
+    --site-hover-shade: rgb(236, 236, 236);
+    --site-active-hover-shade: rgb(255, 142, 36);
+    --drop-down-menu-shade: rgb(255, 255, 255);
+    --light-border: rgb(201, 201, 201);
+    --shadowing: rgb(0, 0, 0, 0.8);
+}
+
+body{
+    background: var(--slight-body-shade);
+}
+
+#overlay{
+    /* positioning of overlay */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 2;
+
+    /* style of overlay */
+    background-color: var(--shadowing);
+}
+
+#navBarContainer{
+    /* Positioning of the navigation bar */
+    position: fixed;
+    display: flex;
+    width: 100%;
+    height: 65px;
+
+    /* style within nav bar */
+    background-color: white;
+    align-items: center;
+}
+
+#logoContainer{
+    /* positioning of logo */
+    display: inline-flex;
+    height: 100%;
+
+    /* positioning within logo container */
+    align-items: center;
+    padding: 16px;
+}
+
+#logo{
+    /* style of logo */
+    color: var(--site-themed-color);
+    font-size: 35px;
+    font-weight: bold;
+}
+
+#siteLinksContainer{
+    /* positioning of main site links container */
+    display: inline-flex;
+    align-items: center;
+}
+
+.siteLink{
+    /* positioning of main site links */
+    padding: 9px 10px;
+    margin: 0px 6px;
+    border-radius: 3px;
+}
+
+#userLinksContainer{
+    /* positioning of main site links container */
+    display: inline-flex;
+    margin-left: auto;
+    margin-right: 16px;
+}
+
+#userLink{
+    /* positioning of main site links */
+    padding: 9px 10px;
+    margin: 0px 6px;
+    border-radius: 3px;
+}
+
+#activeUserLink, #activeUserLinkDup{
+    /* positioning of main site links */
+    background: var(--site-themed-color);
+    padding: 9px 10px;
+    margin: 0px 2px;
+    border-radius: 3px;
+}
+
+#activeLink, #activeLinkDup{
+    /* styling of links */
+    color: white;
+}
+
+.link, .linkDup{
+    /* styling of links */
+    color: var(--site-links-color);
+}
+
+#greetingContainer{
+    /* positioning of main site links container */
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: 16px;
+    height: 100%;
+    padding: 10px 10px;
+}
+
+#userGreetingSpan{
+    /* positioning of main site links */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 9px 10px;
+}
+
+#logoutContainer{
+    /* positioning/style of main site links container */
+    display: none;
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 22px;
+    width: 100%;
+    height: 65px;
+    left: 0px;
+    border-radius: 0px 0px 5px 5px;
+    transform: translateY(-11px);
+    transition: all 0.4s ease;
+    border: solid;
+    border-color: var(--light-border);
+    border-width: 1px;
+
+    /* positioning of items within container */
+    justify-content: center;
+    align-items: center;
+    padding: 12px 16px;
+    background-color: var(--drop-down-menu-shade);
+}
+
+#logLink{
+    /* style of container */
+    padding: 10px 70px;
+
+    /* styling of logout link */
+    color: var(--site-links-color);
+}
+
+#dropDownMenuContainer{
+    /* positioning of container */
+    display: none;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    
+    /* styling within drop down menu button container */
+    padding: 3px;
+}
+
+#dropDownMenuContainerDup{
+    /* positioning of container */
+    display: flex;
+    height: 65px;
+    align-items: center;
+    justify-content: left;
+    
+    /* styling within drop down menu button container */
+    padding: 3px;
+}
+
+#dropDownMenuButton, #dropDownMenuButtonDup{
+    /* positioning of container */
+    display: block;
+    width: 27px;
+    margin-left: 16px;
+
+    /* styling of drop down menu */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#dropDownMenuButton:focus, #dropDownMenuButtonDup:focus{
+    outline: none;
+}
+
+.dropDownMenuButtonBar, .dropDownMenuButtonBarDup{
+    /* sizing of drop down menu bars */
+    display: block;
+    width: 100%;
+    height: 3px;
+
+    /* style of drop down menu bars */
+    background: var(--site-themed-color);
+    margin: 5px 0px;
+    border-radius: 25px;
+}
+
+#sideNavContainer{
+    /* Position of Side Menu */
+    position: fixed;
+    display: none;
+    z-index: 3;
+}
+
+#sideNav{
+    /* Position of Side Menu */
+    position: fixed;
+    display: flex;
+    align-items: left;
+    flex-direction: column;
+    height: 100%;
+    width: 225px;
+    background-color: white;
+}
+
+#allLinks{
+    /* Position of Side Menu */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+
+#siteLinksContainerDup, #userLinksContainerDup{
+    /* positioning of containter */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    border: solid;
+    border-color: var(--light-border);
+    border-width: 1px 0px;
+}
+
+#userLinksContainerDup{
+    /* Keeps sign up and login buttons in side menu on bottom */
+    margin-top: auto;
+}
+
+.siteLinkDup, #userLinkDup, #activeUserLinkDup{
+    /* positioning of container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+
+    /* style of container */
+    border-radius: 0px;
+    padding: 0px;
+}
+
+.linkDup, #activeLinkDup{
+    width: 100%;
+    padding: 25px;
+    text-align: center;
+}
+
+/* ------------- ANIMATIONS ----------------- */
+
+/* For hovering over site linkes */
+.siteLink:hover, #userLink:hover, #logoutContainer:hover, 
+.siteLinkDup:hover, #userLinkDup:hover, #logoutContainerDup:hover{
+    background: var(--site-hover-shade);
+    transition: .5s; 
+}
+
+/* Hovering over 'active' site links */
+#activeUserLink:hover, #activeUserLinkDup:hover{
+    background: var(--site-active-hover-shade);
+    transition: .5s; 
+}
+
+/* Opens drop down menu to logout */
+#greetingContainer:hover #logoutContainer{
+    display: flex;
+}
+
+/* ------------------------ MEDIA QUEIRIES ---------------------- */
+
+@media (max-width: 720px){
+    #dropDownMenuContainer{
+        /* positioning of container */
+        display: inline-flex; /* Drop down menu now becomes visible */
+    }
+
+    #siteLinksContainer{
+        /* positioning of container */
+        display: none;
+    }
+
+    #userLinksContainer{
+        /* positioning of container */
+        display: none;
+    }
+}

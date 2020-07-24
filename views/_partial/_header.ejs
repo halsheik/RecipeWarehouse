@@ -1,60 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homemade</title>
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    
-    <link rel="stylesheet" href="/styles/navStyle.css">
-    <link rel="stylesheet" href="/styles/myRecipesStyle.css">
-    <link rel="stylesheet" href="/styles/createRecipeStyle.css">
-</head>
-<body>
-    <nav class="mainNav">
-        <div class="overlay"></div>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homemade</title>
 
-        <label class="logo"><a href="/">Homemade</a></label>
-
-        <nav class="dropDownMenu">
-            <button class="dropDownMenuButton">
-                <span class="dropDownMenuButtonBar"></span>
-                <span class="dropDownMenuButtonBar"></span>
-                <span class="dropDownMenuButtonBar"></span>
-            </button>
-        </nav>
+        <!-- Required program scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
         
-        <div class="allLinks">
-            <ul class="siteLinks">
-                <li>
-                    <a href="/recipes/myRecipes">My Recipes</a>
-                </li>
-                <li>
-                    <a href="/about">About Us</a>
-                </li>
-                <li>
-                    <a href="/contactUs">Contact Us</a>
-                </li>
-            </ul>
+        <!-- Style Sheets-->
+        <link rel="stylesheet" href="/styles/navBarStyle.css">
+        <link rel="stylesheet" href="/styles/myRecipesStyle.css">
+        <link rel="stylesheet" href="/styles/createRecipeStyle.css">
+    </head>
+    <body>
+        <!-- used for fading back effect when drop down menu is opened *initially invisible* -->
+        <div id="overlay"></div>
+        
+        <!-- Main navigation bar -->
+        <nav id="navBarContainer">
+            <!-- Drop down menu icon -->
+            <div id="dropDownMenuContainer">
+                <button id="dropDownMenuButton">
+                    <span class="dropDownMenuButtonBar"></span>
+                    <span class="dropDownMenuButtonBar"></span>
+                    <span class="dropDownMenuButtonBar"></span>
+                </button>
+            </div>
+
+            <!-- Logo -->
+            <div id="logoContainer">
+                <a id="logo" href="/">Homemade</a>
+            </div>
             
-            <ul class="userLinks">
-                <% if(user){ %>
-                    <li>
-                        <a>Welcome, <%= user.name %>!</a>
-                    </li>
-                    <li>
-                        <a href="/users/logout">Logout</a>
-                    </li>
-                <% } else { %>
-                    <li>
-                        <a href="/users/login">Login</a>
-                    </li>
-                    <li>
-                        <a class="active" href="/users/register">Sign Up</a>
-                    </li>
-                <% } %>
+            <!-- Main site links -->
+            <ul id="siteLinksContainer">
+                <li class="siteLink">
+                    <a class="link" href="/recipes/myRecipes">My Recipes</a>
+                </li>
+                <li class="siteLink">
+                    <a class="link" href="/about">About Us</a>
+                </li>
+                <li class="siteLink">
+                    <a class="link" href="/contactUs">Contact Us</a>
+                </li>
             </ul>
-        </div>
-    </nav>
+
+            <!-- User interactive buttons *Sign In/Sign Up/Logout/Greeting -->
+            <% if(!user){ %>
+                <ul id="userLinksContainer">
+                    <li id="userLink">
+                        <a class="link" href="/users/login">Login</a>
+                    </li>
+                    <li id="activeUserLink">
+                        <a id="activeLink" href="/users/register">Sign Up</a>
+                    </li>
+                </ul>
+            <% } else { %>
+                <div id="greetingContainer">
+                    <span id="userGreetingSpan"><a id="userGreetingLink">Hello, <%= user.name %>!</a></span>
+
+                    <ul id="logoutContainer">
+                        <li id="logoutLink">
+                            <a id="logLink" href="/users/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            <% } %> 
+        </nav>
+
+        <div id="sideNavContainer">
+            <nav id="sideNav">
+                <!-- Drop down menu icon -->
+                <div id="dropDownMenuContainerDup">
+                    <button id="dropDownMenuButtonDup">
+                        <span class="dropDownMenuButtonBarDup"></span>
+                        <span class="dropDownMenuButtonBarDup"></span>
+                        <span class="dropDownMenuButtonBarDup"></span>
+                    </button>
+                </div>
     
-    <script src="/controls/navControl.js"></script>
+                <div id="allLinks">
+                    <!-- Main site links -->
+                    <ul id="siteLinksContainerDup">
+                        <li class="siteLinkDup">
+                            <a class="linkDup" href="/recipes/myRecipes">My Recipes</a>
+                        </li>
+                        <li class="siteLinkDup">
+                            <a class="linkDup" href="/about">About Us</a>
+                        </li>
+                        <li class="siteLinkDup">
+                            <a class="linkDup" href="/contactUs">Contact Us</a>
+                        </li>
+                    </ul>
+    
+                    <% if(!user){ %>
+                        <ul id="userLinksContainerDup">
+                            <li id="userLinkDup">
+                                <a class="linkDup" href="/users/login">Login</a>
+                            </li>
+                            <li id="activeUserLinkDup">
+                                <a id="activeLinkDup" href="/users/register">Sign Up</a>
+                            </li>
+                        </ul>
+                    <% } %>
+                </div>
+            </nav>
+        </div>
