@@ -1,4 +1,3 @@
-Check how to properly put together Vuejs for both dynamic inputs in form -- ?
+Check how to properly put together Vuejs for both dynamic inputs in form -- ? Switch to using jquery for the dynamic form when possuble for consistency
 fix images being saved when form input is incorrect
-fix side menu staying open when window made large again with menu open
 Get inputs to save if from submission fails

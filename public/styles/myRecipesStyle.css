@@ -3,7 +3,6 @@
 *:after{
     padding: 0px;
     margin: 0px;
-    text-decoration: none;
     box-sizing: border-box;
 }
 
@@ -88,6 +87,7 @@
     transition: .5s;
 }
 
+/* ------------------------ MEDIA QUEIRIES ---------------------- */
 
 @media (max-width: 1200px){
     #allRecipes{

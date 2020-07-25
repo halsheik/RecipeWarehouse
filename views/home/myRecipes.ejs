@@ -1,13 +1,15 @@
 <%- include('../_partial/_header'); -%>
+    <!-- Container for all of a user's recipes -->
     <div id="recipesContainer">
         <div id="myRecipesContainer">
             <label id="myRecipesLabel">My Recipes</label> 
     
+            <!-- Button to Create a New Recipe -->
             <a href="/recipes/createRecipe" id="newRecipeButton">+ Create New Recipe</a>
         </div>
         
+        <!-- Displays each individual recipe (The name and image) -->
         <div id="allRecipes">
-            <a><%=recipes.author%></a>
             <% recipes.forEach(function(recipe){ %>
                 <% if(recipe.author == user._id){ %>
                     <a href="/recipes/<%= recipe._id %>">
@@ -23,8 +25,5 @@
             <% }); %>
         </div>
     </div>
-
-    <script src="/controls/newRecipeControl.js"></script>
-    <script src="/controls/imageValidator.js"></script> 
     
 <%- include('../_partial/_footer'); -%>

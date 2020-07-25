@@ -3,134 +3,213 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    text-decoration: none;
 }
 
-body{
-    background: rgb(250, 250, 250);
+/* colors used within website */
+:root{
+    --site-themed-color: rgb(248, 166, 89);
+    --site-themed-color-shadow: rgb(250, 183, 120);
+    --site-active-hover-shade: rgb(255, 142, 36);
+    --light-border: rgb(201, 201, 201);
+    --user-link-color: rgb(61, 90, 255);
+}
+
+#background{
+    /* positioning of background */
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
 }
 
 /* Container holding registration form */
 .userContainer{
     /* Center the form in middle of the page */
     position: relative;
-    top: 370px;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    display: flex;
+    align-items: center;
+    top: 150px;
+    width: 30vw;
+    left: 35vw;
+    overflow-y: scroll;
 
     /* Style within form */
     padding: 25px 20px;
-    background: rgb(255, 255, 255);
-
-    /* Style of form */
-    width: 350px;
-    height: 396px;
+    background: white;
 
     /* Border around the form */
     border: solid;
-    border-color: rgb(201, 201, 201);
+    border-color: var(--light-border);
     border-width: 1px;
     border-radius: 2%;
 }
 
-#loginContainer{
-    top: 314px;
-    height: 284px;
+#loginForm{
+    /* make form fill container */
+    width: 100%;
 }
 
 /* Positioning/style of logo within registration form */
 .userLogo{
     /* Positioning of logo */
-    position: absolute;
-    top: 150px;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
+    display: block;
+    width: 100%;
+    text-align: center;
+
     /* Logo style */
-    color: rgb(248, 166, 89);
+    color: var(--site-themed-color);
     font-size: 36px;
     font-weight: bold;
     margin-bottom: 10px;
-
 }
 
 .userLogo a:visited{
-    color: rgb(248, 166, 89);
+    color: var(--site-themed-color);
 }
 
 /* Positioning/style of heading within registration form */
 .formHeading{
     /* Positioning of heading */
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: left;
     width: 100%;
-    float: left;
 
     /* Heading style */
     font-size: 28px;
-    margin-bottom: 20px;
+    margin-bottom: 16px;
+}
+
+.inputOption{
+    /* postioning of container */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin: 0px 16px 8px 16px;
 }
 
 .inputOptionLabel{
     /* Positioning of labels */
     display: block;
+    margin-bottom: 2px;
 
     /* Label styles */
     font-size: 16px;
     font-weight: bold;
-    margin-bottom: 2px;
-    margin-left: 4px;
 }
 
 .inputOptionInput{
     /* Positioning of labels */
     display: block;
-    margin-bottom: 5px;
-    border-radius: 5px;
-
-    /* Label text styles */
-    font-size: 16px;
 
     /* Label Style */
     width: 100%;
     padding: 5px;
+    font-size: 16px;
     border-width: 1px;
     border-style: solid;
-    border-color: rgb(201, 201, 201);
+    border-color: var(--light-border);
+    border-radius: 5px;
 }
 
-.userButton{
+#buttonContainer{
     /* Positioning of labels */
+    position: relative;
     display: block;
-    margin-top: 25px;
-
-    /* Label text styles */
-    font-size: 12px;
-    font-weight: bold;
-
-    /* Label Style */
-    width: 100%;
-    padding: 7px 10px;
-    background: rgb(248, 166, 89);
-    outline: none;
-    border: 1px rgb(255, 160, 71) solid;
-    border-radius: 2px;
-    box-shadow: inset 0 2px 5px rgb(250, 183, 120);
+    margin: 20px 16px 0px 16px;
 }
 
-.form{
+#userButton{
+    /* positioning of container */
+    position: relative;
+    display: block;
+    width: 100%;
+
+    /* styling of container */
+    text-align: center;
+    color: white;
+    background: var(--site-themed-color);
+    border: none;
+    padding: 7.5px 10px;
+    border-radius: 3px;
+    box-shadow: inset 0 2px 5px var(--site-themed-color-shadow);
+    outline: none;
+}
+
+#formQ{
     /* Positioning of Labels */
     display: inline-block;
     margin-top: 4px;
-    margin-left: 6px;
+    margin-left: 16px;
 
     /* Text Styles */
     font-size: 14px;
 }
 
-.form a:visited{
-    color: rgb(61, 90, 255);
+#formLink{
+    /* Positioning of Labels */
+    display: inline-block;
+    margin-top: 4px;
+    margin-left: 4px;
+
+    /* Text Styles */
+    font-size: 14px;
 }
 
-.form a:hover{
-    color: rgb(248, 166, 89);
+/* ------------- ANIMATIONS ----------------- */
+
+#userButton:hover{
+    background: var(--site-active-hover-shade);
+    transition: .5s;
+}
+
+#formLink a:visited{
+    color: var(--user-link-color);
+}
+
+#formLink a:hover{
+    color: var(--site-themed-color-shadow);
+}
+
+/* ------------------------ MEDIA QUEIRIES ---------------------- */
+
+@media (max-width: 1274px){
+    /* Container holding registration form */
+    .userContainer{
+        /* Adjust form size */
+        top: 150px;
+        width: 40vw;
+        left: 30vw;
+    }
+}
+
+@media (max-width: 972px){
+    /* Container holding registration form */
+    .userContainer{
+        /* Adjust form size */
+        top: 150px;
+        width: 50vw;
+        left: 25vw;
+    }
+}
+
+@media (max-width: 700px){
+    /* Container holding registration form */
+    .userContainer{
+        /* Adjust form size */
+        top: 150px;
+        width: 60vw;
+        left: 20vw;
+    }
+}
+
+@media (max-width: 556px){
+    /* Container holding registration form */
+    .userContainer{
+        /* Adjust form size */
+        top: 150px;
+        width: 70vw;
+        left: 15vw;
+    }
 }

@@ -1,12 +1,30 @@
-<%- include('../_partial/_header'); -%>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homemade</title>
+
+        <!-- Required program scripts -->
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        
+        <!-- Style Sheets-->
+        <link rel="stylesheet" href="/styles/navBarStyle.css">
+        <link rel="stylesheet" href="/styles/myRecipesStyle.css">
+        <link rel="stylesheet" href="/styles/createRecipeStyle.css">
+    </head>
+    <body>
+        <!-- Background image -->
+        <img id="background" src="/images/foodBackground.jpg" alt="">
 
         <div id="newRecipeContainer">
             <div id="closeButtonContainer">
-                <div id="closeButton">+</div>
+                <div id="backButton"><a id="back" href="/recipes/myRecipes">&larr; My Recipes</a></div>
             </div>
             
-
-            <form action="/recipes/createRecipe" method="POST" enctype="multipart/form-data">
+            <form id="createRecipeForm" action="/recipes/createRecipe" method="POST" enctype="multipart/form-data">
                 <label id="formSubHeading">Create Your Homemade Recipe</label>
 
                 <div id="recipeNameContainer">
@@ -16,7 +34,7 @@
 
                 <div id="recipeImage">
                     <label id="recipeImageLabel">Add An Image of Your Meal</label>
-                    <input id="recipeImageInput" type="file" accept="image/*" name="recipeImage" onchange="validateImageFile(this);"/> 
+                    <input id="recipeImageInput" type="file" accept="image/*" name="recipeImage"/> 
                     <label id="recipeImageInputLabel" for="recipeImageInput">Choose A File</label>
                 </div>
 
@@ -57,6 +75,5 @@
         </div>
 
         <script src="/controls/newRecipeControl.js"></script>
-        <script src="/controls/imageValidator.js"></script>
-
-<%- include('../_partial/_footer'); -%>
+    </body>
+</html>

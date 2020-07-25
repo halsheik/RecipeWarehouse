@@ -8,11 +8,13 @@
     <link rel="stylesheet" href="/styles/userStyle.css">
 </head>
 <body>
-    <label class="userLogo"><a href="/">Homemade</a></label>
+    <!-- Background image -->
+    <img id="background" src="/images/foodBackground.jpg" alt="">
 
     <div class="userContainer">
-        <form action="/users/register" method="POST">
-            
+        <form id="loginForm" action="/users/register" method="POST">
+            <label class="userLogo"><a href="/">Homemade</a></label>
+
             <h1 class="formHeading">Create Account</h1>
 
             <div class="inputOption">
@@ -32,10 +34,12 @@
                 <input class="inputOptionInput" type="password" id="password2" name="password2">
             </div>
     
-            <button class="userButton" type="submit">Register</button>
+            <div id="buttonContainer">
+                <button id="userButton" type="submit">Register</button>
+            </div>
 
-            <label class="form">Already have an account?</label>
-            <label class="form"><a href="/users/login">Sign In</a></label>
+            <label id="formQ">Don't have an account?</label>
+            <label id="formLink"><a href="/users/register">Register</a></label>
         </form>
     </div>
 </body>

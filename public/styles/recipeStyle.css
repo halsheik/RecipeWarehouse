@@ -1,0 +1,154 @@
+/* Default Styles */
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+/* colors used within website */
+:root{
+    --site-themed-color: rgb(248, 166, 89);
+    --body-shade: rgb(228, 228, 228);
+    --site-links-color: rgb(61, 61, 61);
+    --site-hover-shade: rgb(236, 236, 236);
+    --site-active-hover-shade: rgb(255, 142, 36);
+    --drop-down-menu-shade: rgb(255, 255, 255);
+    --light-border: rgb(201, 201, 201);
+    --shadowing: rgb(0, 0, 0, 0.8);
+}
+
+#returnButton{
+    /* positioning of container */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 65px;
+    margin: 3% 5%;
+    z-index: -1;
+}
+
+#recipeContainerS{
+    /* positioning of container */
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    top: 100px;
+    margin: 3% 5%;
+    z-index: -1;
+
+    /* style of contianer */
+    background-color: white;
+}
+
+#recipeTop{
+    /* positioning of container */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#recipeImageContainerS{
+    /* positioning of container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55%;
+}
+
+#recipeImageS{
+    /* positioning of container */
+    max-width: 100%;
+}
+
+#recipeTitleContainerS{
+    /* positioning of container */
+    display: inline-block;
+    align-items: center;
+    width: 45%;
+    height: 100%;
+}
+
+#recipeTitleInnerContainerS{
+    /* positioning of container */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#recipeTitleS{
+    /* Style of text */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#recipeDescriptionContainerS{
+    /* positioning of container */
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 3px;
+    margin: 0px 3px;
+}
+
+.recipeHeading{
+    /* text styles */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#recipeInfoContainer{
+    background-color: rgb(253, 253, 253);
+}
+
+#description{
+    /* styles in container */
+    padding: 0px 12px;
+    font-size: 20px;
+    color: var(--site-links-color);
+    word-wrap: break-word;
+}
+
+.dynamicContainer{
+    /* positioning of container */
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: center;
+    padding: 3px;
+    margin: 6px 3px;
+}
+
+.dynHeading{
+    /* text styles */
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.innerCon{
+    /* positioning of container */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+
+    /* styles in container */
+    padding: 0px 12px;
+    font-size: 20px;
+    color: var(--site-links-color);
+}
+
+.itemU{
+    /* positioning of container */
+    display: list-item;
+    list-style: disc;
+    margin-left: 22px;
+}
+
+.itemO{
+    /* positioning of container */
+    display: list-item;
+    list-style-type: decimal;
+    margin-left: 22px;
+}

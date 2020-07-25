@@ -42,23 +42,42 @@ const ingredientsControl = new Vue({
         }
 })
 
-const toggleNewRecipeForm = function(){
-    const newRecipeButton = document.querySelector('#newRecipeButton');
-    const newRecipeContainer = document.querySelector('#newRecipeContainer');
-    const closeButton = document.querySelector('#closeButton');
-    const overlay = document.querySelector('.overlay');
+// Function to validate for image files
+function validateImageFile(file){
+    // Valid image extension types
+    const validImageFileExtensions = [".jpg", ".jpeg", ".gif", ".png"];
 
-    // Open dropDownMenu
-    newRecipeButton.addEventListener('click', function(){
-        newRecipeContainer.style.display = 'block';
-        overlay.classList.toggle('addOverlay');
-    });
+    // Checks for file type 'file'
+    if(file.type == "file"){
+        // Retrieve file name
+        const filename = file.value;
 
-    // Close dropDownMenu
-    closeButton.addEventListener('click', function(){
-        newRecipeContainer.style.display = 'none';
-        overlay.classList.toggle('addOverlay');
-    });
+        // Check file for validity
+        var invalidFile = true; // For validity check
+
+        // Loops through valid file types array
+        for(var i = 0; i < validImageFileExtensions.length; ++i){
+            var validFileType = validImageFileExtensions[i]; // Grabs a extension from list of valid extensions
+            var fileExtension = substr(filename.length - validFileType.length, validFileType.length); // Grabs last x characters equal in length to each valid extension type
+
+            // Checks for equality
+            if(validFileType.toLowerCase() == fileExtension.toLowerCase()){
+                invalidFile = false;
+                break;
+            }
+        }
+
+        // Errors if invalid file type
+        if(invalidFile){
+            file.value = "";
+            return false;
+        }
+    }
+
+    return true;
 }
 
-toggleNewRecipeForm();
+$(document).ready(function(){
+    // Opens Side Menu when Drop Down Menu Button is Clicked
+    $("#recipeImageInputLabel").click(validateImageFile(this));
+});

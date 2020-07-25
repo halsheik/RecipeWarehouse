@@ -1,10 +1,49 @@
 <%- include('../_partial/_header'); -%>
-    <div id="recipeContainer">
-        
-        <div id="allRecipes">
-            <a><%= recipe.recipeName %></a>
+    <div id="returnButton">
+        <div id="closeButtonContainer">
+            <div id="backButton"><a id="back" href="/recipes/myRecipes">&larr; My Recipes</a></div>
+        </div>
+    </div>
+    
+    <div id="recipeContainerS">
 
-            <img src="/uploads/<%= recipe.recipeImageFileName %>"/>
+        <div id="recipeTop">
+            <div id="recipeImageContainerS">
+                <img id="recipeImageS" src="/uploads/<%= recipe.recipeImageFileName %>"/>
+            </div>
+    
+            <div id="recipeTitleContainerS">
+                <div id="recipeTitleInnerContainerS">
+                    <a id="recipeTitleS"><%= recipe.recipeName %></a>
+                </div>
+            </div>
+        </div>
+
+        <div id="recipeInfoContainer">
+            <div id="recipeDescriptionContainerS">
+                <a class="recipeHeading">Description</a>
+                <a id="description"><%= recipe.recipeDescription %></a>
+            </div>
+    
+            <ul class="dynamicContainer">
+                <a class="dynHeading">Ingredients</a>
+    
+                <% recipe.ingredients.forEach(function(ingredient){ %>
+                    <li class="innerCon">
+                        <a class="itemU"><%= ingredient %></a>
+                    </li>
+                <% }); %>
+            </ul>
+    
+            <ol class="dynamicContainer">
+                <a class="dynHeading">Directions</a>
+    
+                <% recipe.directions.forEach(function(direction){ %>
+                    <li class="innerCon">
+                        <a class="itemO"><%= direction %></a>
+                    </li>
+                <% }); %>
+            </ol>
         </div>
     </div>
     
