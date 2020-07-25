@@ -10,19 +10,26 @@
         
         <!-- Displays each individual recipe (The name and image) -->
         <div id="allRecipes">
-            <% recipes.forEach(function(recipe){ %>
-                <% if(recipe.author == user._id){ %>
-                    <a href="/recipes/<%= recipe._id %>">
-                        <div class="secondaryContainer">
-                            <div class="recipeContainerIndv">
-                                <img src="/uploads/<%= recipe.recipeImageFileName %>"/>
-    
-                                <a class="recipeTitle"> <%= recipe.recipeName %> </a>
+            <% if(recipes.length > 0) { %>
+                <% recipes.forEach(function(recipe){ %>
+                    <% if(recipe.author == user._id){ %>
+                        <a href="/recipes/<%= recipe._id %>">
+                            <div class="secondaryContainer">
+                                <div class="recipeContainerIndv">
+                                    <img src="/uploads/<%= recipe.recipeImageFileName %>"/>
+        
+                                    <a class="recipeTitle"> <%= recipe.recipeName %> </a>
+                                </div>
                             </div>
-                        </div>
-                    </a>
-                <% } %>
-            <% }); %>
+                        </a>
+                    <% } %>
+                <% }); %>
+            <% } else { %>
+                <div id="noRecipesContainer">
+                    <a id="noRecipes">You Currently Have No Recipes!</a>
+                </div>
+            <% } %>
+            
         </div>
     </div>
     
