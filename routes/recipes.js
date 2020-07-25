@@ -80,8 +80,6 @@ router.post('/createRecipe', upload.single('recipeImage'), ensureAuthenticated, 
             directions: directions,
         }); 
 
-        console.log(newRecipe);
-
         // Saves recipe to mongoDB database
         newRecipe.save().then(function(){
             res.redirect('/recipes/myRecipes');
