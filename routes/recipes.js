@@ -104,4 +104,18 @@ router.get('/:id', function(req, res){
     });
   });
 
+// Delete recipe
+router.delete('/:id', function(req, res){
+    const query = {_id: req.params.id}
+  
+    Recipe.deleteOne(query, function(err){
+        if(err){
+          console.log(err);
+          throw err;
+        }
+        
+        res.send('Success');
+    });
+  });
+
 module.exports = router;

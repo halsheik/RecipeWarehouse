@@ -13,15 +13,15 @@
             <% if(recipes.length > 0) { %>
                 <% recipes.forEach(function(recipe){ %>
                     <% if(recipe.author == user._id){ %>
-                        <a href="/recipes/<%= recipe._id %>">
-                            <div class="secondaryContainer">
-                                <div class="recipeContainerIndv">
-                                    <img src="/uploads/<%= recipe.recipeImageFileName %>"/>
-        
-                                    <a class="recipeTitle"> <%= recipe.recipeName %> </a>
-                                </div>
+                        <div class="secondaryContainer">
+                            <div class="recipeContainerIndv"> 
+                                <a data-id="<%= recipe._id %>" href="#"><span class="deleteButton">Delete</span></a>
+
+                                <a href="/recipes/<%= recipe._id %>"><img src="/uploads/<%= recipe.recipeImageFileName %>"/></a>
+    
+                                <a href="/recipes/<%= recipe._id %>" class="recipeTitle"> <%= recipe.recipeName %> </a>
                             </div>
-                        </a>
+                        </div>
                     <% } %>
                 <% }); %>
             <% } else { %>
