@@ -1,0 +1,25 @@
+.messageContainer{
+    /* postioning of container */
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    align-items: center;
+    margin: 0px 16px 8px 16px;
+    padding: 6px;
+    border-radius: 5px;
+    background-color: rgb(245, 245, 245);
+}
+
+.errorMessage{
+    /* style of error text */
+    color: rgb(255, 36, 36);
+}
+
+.closeButton{
+    /* style of close button */
+    font-size: 12px;
+
+    /* postioning of close button */
+    margin-left: auto;
+    margin-right: 2px;
+}

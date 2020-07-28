@@ -5,7 +5,12 @@
     flex-direction: column;
     top: 65px;
     width: 90%;
-    margin: 2% 5% 0% 5%;
+    margin: 1.5% 5% 0% 5%;
+    padding: 10px;
+    border-radius: 8px;
+
+    /* style of container */
+    background-color: white;
 }
 
 #usageContainer{

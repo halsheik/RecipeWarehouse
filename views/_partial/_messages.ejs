@@ -1,0 +1,8 @@
+<% if(typeof errors != 'undefined') { %>
+    <%errors.forEach(function(error){ %>
+        <div class="messageContainer">
+            <a class="errorMessage"><%= error.msg %></a>
+            <a class="closeButton" href="#"><span>X</span></a>
+        </div>
+    <% }); %>
+<% } %>

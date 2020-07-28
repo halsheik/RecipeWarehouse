@@ -42,11 +42,7 @@ router.post('/register', function(req, res){
     // Checks for any errors and prevents registration/redirection
     if(errors.length > 0){
         res.render('./home/register', {
-            errors,
-            name,
-            email,
-            password,
-            password2
+            errors
         });
     }
     else{

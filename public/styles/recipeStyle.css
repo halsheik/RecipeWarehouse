@@ -16,7 +16,7 @@
     display: flex;
     flex-direction: column;
     top: 65px;
-    margin: 3% 5%;
+    margin: 1.5% 5%;
     z-index: -1;
 }
 
@@ -27,7 +27,7 @@
     flex-direction: column;
     width: 90%;
     top: 100px;
-    margin: 3% 5%;
+    margin: 1.5% 5%;
     z-index: -1;
 
     /* style of contianer */

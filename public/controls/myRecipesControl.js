@@ -9,7 +9,6 @@ $(document).ready(function(){
         $target = $(event.target);
         const id = $(this).parent().attr('data-id');
 
-        console.log(id);
         $.ajax({
             type:'DELETE',
             url: '/recipes/' + id,

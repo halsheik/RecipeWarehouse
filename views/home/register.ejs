@@ -5,42 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homemade</title>
 
+    <script src="http://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="/styles/userStyle.css">
+    <link rel="stylesheet" href="/styles/errorMessageStyle.css">
 </head>
-<body>
-    <!-- Background image -->
-    <img id="background" src="/images/foodBackground.jpg" alt="">
+    <body>
+        <!-- Background image -->
+        <img id="background" src="/images/foodBackground.jpg" alt="">
 
-    <div class="userContainer">
-        <form id="loginForm" action="/users/register" method="POST">
-            <label class="userLogo"><a href="/">Homemade</a></label>
+        <div class="userContainer">
+            <form id="loginForm" action="/users/register" method="POST">
+                <label class="userLogo"><a href="/">Homemade</a></label>
 
-            <h1 class="formHeading">Create Account</h1>
+                <h1 class="formHeading">Create Account</h1>
 
-            <div class="inputOption">
-                <label class="inputOptionLabel">Your Name</label>
-                <input class="inputOptionInput" type="name" id="name" name="name">
-            </div>
-            <div class="inputOption">
-                <label class="inputOptionLabel" for="email">Email</label>
-                <input class="inputOptionInput" type="email" id="email" name="email">
-            </div>
-            <div class="inputOption">
-                <label class="inputOptionLabel" for="password">Password</label>
-                <input class="inputOptionInput" type="password" id="password" name="password">
-            </div>
-            <div class="inputOption">
-                <label class="inputOptionLabel" for="password2">Confirm Password</label>
-                <input class="inputOptionInput" type="password" id="password2" name="password2">
-            </div>
-    
-            <div id="buttonContainer">
-                <button id="userButton" type="submit">Register</button>
-            </div>
+                <%- include('../_partial/_messages'); -%>
 
-            <label id="formQ">Don't have an account?</label>
-            <label id="formLink"><a href="/users/register">Register</a></label>
-        </form>
-    </div>
-</body>
+                <div class="inputOption">
+                    <label class="inputOptionLabel">Your Name</label>
+                    <input class="inputOptionInput" type="name" id="name" name="name">
+                </div>
+                <div class="inputOption">
+                    <label class="inputOptionLabel" for="email">Email</label>
+                    <input class="inputOptionInput" type="email" id="email" name="email">
+                </div>
+                <div class="inputOption">
+                    <label class="inputOptionLabel" for="password">Password</label>
+                    <input class="inputOptionInput" type="password" id="password" name="password">
+                </div>
+                <div class="inputOption">
+                    <label class="inputOptionLabel" for="password2">Confirm Password</label>
+                    <input class="inputOptionInput" type="password" id="password2" name="password2">
+                </div>
+        
+                <div id="buttonContainer">
+                    <button id="userButton" type="submit">Register</button>
+                </div>
+
+                <label id="formQ">Don't have an account?</label>
+                <label id="formLink"><a href="/users/login">Login</a></label>
+            </form>
+        </div>
+    </body>
+
+    <!-- Required scripts to run app -->
+    <script src="/controls/errorMessageControl.js"></script>
 </html>
