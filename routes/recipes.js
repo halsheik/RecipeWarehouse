@@ -16,13 +16,45 @@ const storage = multer.diskStorage({
     destination: function(req, file, callback){
         callback(null, 'public/uploads');
     },
-
     filename: function(req, file, callback){
         crypto.pseudoRandomBytes(16, function(err, raw) {
             if (err) return callback(err);
           
             callback(null, raw.toString('hex') + path.extname(file.originalname));
         });
+    },
+    fileFilter: function validateImageFile(file){ // Function to validate for image files
+        // Valid image extension types
+        const validImageFileExtensions = [".jpg", ".jpeg", ".gif", ".png"];
+    
+        // Checks for file type 'file'
+        if(file.type == "file"){
+            // Retrieve file name
+            const filename = file.value;
+    
+            // Check file for validity
+            var invalidFile = true; // For validity check
+    
+            // Loops through valid file types array
+            for(var i = 0; i < validImageFileExtensions.length; ++i){
+                var validFileType = validImageFileExtensions[i]; // Grabs a extension from list of valid extensions
+                var fileExtension = substr(filename.length - validFileType.length, validFileType.length); // Grabs last x characters equal in length to each valid extension type
+    
+                // Checks for equality
+                if(validFileType.toLowerCase() == fileExtension.toLowerCase()){
+                    invalidFile = false;
+                    break;
+                }
+            }
+    
+            // Errors if invalid file type
+            if(invalidFile){
+                file.value = "";
+                return false;
+            }
+        }
+    
+        return true;
     }
 });
 
@@ -49,7 +81,7 @@ router.get('/createRecipe', ensureAuthenticated, function(req, res){
 });
 
 // Create Recipe
-router.post('/createRecipe', upload.single('recipeImage'), ensureAuthenticated, function(req, res){
+router.post('/createRecipe', ensureAuthenticated, upload.single('recipeImage'), function(req, res){
     const { recipeName, recipeDescription, ingredients, directions } = req.body;
     let errors = [];
 
@@ -60,7 +92,7 @@ router.post('/createRecipe', upload.single('recipeImage'), ensureAuthenticated, 
 
     // Checks that an image is uploaded
     if(!req.file){
-        errors.push({ msg: 'Please add an image of your recipe' });
+        errors.push({ msg: 'Please attach an image of your recipe.' });
     }
 
     // Checks for any errors and prevents recipe creation if any

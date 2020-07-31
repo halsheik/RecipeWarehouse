@@ -1,83 +1,39 @@
-const directionsControl = new Vue({
-    el: '.directionsContainer',
-    data: {
-        directions: [
-            {
-                direction: ''
-            }
-        ]
-    },
-    methods: {
-        addDirectionForm: function(){
-            this.directions.push({
-                direction: ''
-            })
-        },
-        deleteDirectionForm: function(directionIndex){
-            if(directionIndex)
-                this.directions.splice(directionIndex, 1)
-        }
+var ingCounter = 1;
+var dirCounter = 1;
+var limit = 10;
+
+function addIngredient(divName){
+    if (ingCounter == limit)  {
+          alert("You have reached the add limit");
     }
-})
-
-const ingredientsControl = new Vue({
-    el: '.ingredientsContainer',
-        data: {
-            ingredients: [
-                {
-                    ingredient: ''
-                }
-            ]
-        },
-        methods: {
-            addIngredientForm: function(){
-                this.ingredients.push({
-                    ingredient: ''
-                })
-            },
-            deleteIngredientForm: function(ingredientIndex){
-                if(ingredientIndex)
-                    this.ingredients.splice(ingredientIndex, 1)
-            }
-        }
-})
-
-// Function to validate for image files
-function validateImageFile(file){
-    // Valid image extension types
-    const validImageFileExtensions = [".jpg", ".jpeg", ".gif", ".png"];
-
-    // Checks for file type 'file'
-    if(file.type == "file"){
-        // Retrieve file name
-        const filename = file.value;
-
-        // Check file for validity
-        var invalidFile = true; // For validity check
-
-        // Loops through valid file types array
-        for(var i = 0; i < validImageFileExtensions.length; ++i){
-            var validFileType = validImageFileExtensions[i]; // Grabs a extension from list of valid extensions
-            var fileExtension = substr(filename.length - validFileType.length, validFileType.length); // Grabs last x characters equal in length to each valid extension type
-
-            // Checks for equality
-            if(validFileType.toLowerCase() == fileExtension.toLowerCase()){
-                invalidFile = false;
-                break;
-            }
-        }
-
-        // Errors if invalid file type
-        if(invalidFile){
-            file.value = "";
-            return false;
-        }
+    else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "<div class='ingredientSet'><input class='ingredientInput' type='text' name='ingredients[]'><button class='deleteIngredientButton' type='button' onClick='removeIngredient(this);'>X</button></div>";
+          document.getElementById(divName).appendChild(newdiv);
+          ingCounter++;
     }
-
-    return true;
 }
 
-$(document).ready(function(){
-    // Opens Side Menu when Drop Down Menu Button is Clicked
-    $("#recipeImageInputLabel").click(validateImageFile(this));
-});
+function addDirection(divName){
+    if (dirCounter == limit)  {
+          alert("You have reached the add limit");
+    }
+    else {
+          var newdiv = document.createElement('div');
+          newdiv.innerHTML = "<div class='directionSet'><input class='directionInput' type='text' name='directions[]'><button class='deleteDirectionButton' type='button' onClick='removeDirection(this);'>X</button></div>";
+          document.getElementById(divName).appendChild(newdiv);
+          dirCounter++;
+    }
+}
+
+function removeIngredient(elementId) {
+    // Removes an element from the document
+    elementId.parentElement.remove()
+    ingCounter--;
+}
+
+function removeDirection(elementId) {
+    // Removes an element from the document
+    elementId.parentElement.remove()
+    dirCounter--;
+}

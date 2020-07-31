@@ -214,11 +214,12 @@
     outline: none;
 }
 
-.ingredientsContainer .allIngredients{
+.ingredientsContainer #allIngredients{
     /* positioning of container */
     display: flex;
-    justify-content: left;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
     margin-top: 8px;
 }
 
@@ -231,13 +232,24 @@
     font-size: 16px;
 }
 
+.ingredientSet{
+    /* positioning of container */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    margin-top: 2px;
+}
+
 .ingredientsContainer .ingredientInput{
     /* Positioning of labels */
-    display: block;
+    display: inline-block;
     border-radius: 5px;
+    margin-right: 1px;
 
     /* Style within label */
-    width: 50vw;
+    width: 84%;
     padding: 5px;
     border-width: 1px;
     border-style: solid;
@@ -248,7 +260,7 @@
 .ingredientsContainer .deleteIngredientButton{
     /* positioning of container */
     display: inline-block;
-    margin-left: 8px;
+    width: 15%;
 
     /* styling of container */
     text-align: center;
@@ -276,6 +288,16 @@
     font-weight: bold;
 }
 
+.directionSet{
+    /* positioning of container */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: left;
+    width: 100%;
+    margin-top: 2px;
+}
+
 .directionsContainer #addDirectionButton{
     /* positioning of container */
     display: inline-block;
@@ -292,19 +314,12 @@
     outline: none;
 }
 
-.directionsContainer .allDirections{
+.directionsContainer #allDirections{
     /* positioning of container */
     display: flex;
-    justify-content: left;
-    align-items: center;
-    margin-top: 8px;
-}
-
-.directionsContainer .allDirections{
-    /* positioning of container */
-    display: flex;
-    justify-content: left;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
     margin-top: 8px;
 }
 
@@ -319,11 +334,12 @@
 
 .directionsContainer .directionInput{
     /* Positioning of labels */
-    display: block;
+    display: inline-block;
     border-radius: 5px;
+    margin-right: 1px;
 
     /* Style within label */
-    width: 50vw;
+    width: 84%;
     padding: 5px;
     border-width: 1px;
     border-style: solid;
@@ -334,7 +350,7 @@
 .directionsContainer .deleteDirectionButton{
     /* positioning of container */
     display: inline-block;
-    margin-left: 8px;
+    width: 15%;
 
     /* styling of container */
     text-align: center;

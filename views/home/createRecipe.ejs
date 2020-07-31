@@ -14,6 +14,7 @@
         <link rel="stylesheet" href="/styles/navBarStyle.css">
         <link rel="stylesheet" href="/styles/myRecipesStyle.css">
         <link rel="stylesheet" href="/styles/createRecipeStyle.css">
+        <link rel="stylesheet" href="/styles/errorMessageStyle.css">
     </head>
     <body>
         <!-- Background image -->
@@ -27,6 +28,8 @@
             <form id="createRecipeForm" action="/recipes/createRecipe" method="POST" enctype="multipart/form-data">
                 <label id="formSubHeading">Create Your Homemade Recipe</label>
 
+                <%- include('../_partial/_messages'); -%>
+
                 <div id="recipeNameContainer">
                     <label id="recipeNameLabel">Title</label>
                     <input id="recipeNameInput" type="text" name="recipeName">
@@ -35,7 +38,7 @@
                 <div id="recipeImage">
                     <label id="recipeImageLabel">Add An Image of Your Meal</label>
                     <input id="recipeImageInput" type="file" accept="image/*" name="recipeImage"/> 
-                    <label id="recipeImageInputLabel" for="recipeImageInput">Choose A File</label>
+                    <label id="recipeImageInputLabel" for="recipeImageInput" name="recipeImage">Choose A File</label>
                 </div>
 
                 <div id="recipeDescription">
@@ -45,25 +48,24 @@
 
                 <div class="ingredientsContainer">
                     <label id="ingredientsLabel">Ingredients</label>
-                    <button id="addIngredientButton" type="button" @click="addIngredientForm">Add Another Ingredient</button>
-            
-                    <div class="allIngredients" v-for="(ingredient, ingredientIndex) in ingredients">
-                        <label class="ingredientLabel">{{ ingredientIndex + 1 }}.)</label>
-                        <input class="ingredientInput" type="text" name="ingredients" v-model="ingredient.ingredient">
+                    <button id="addIngredientButton" type="button" onClick="addIngredient('allIngredients');">Add Another Ingredient</button>
+        
+                    <div id="allIngredients">
+                        <div class="ingredientSet">
+                            <input class="ingredientInput" type="text" name="ingredients[]">
+                        </div>
                         
-                        <button class="deleteIngredientButton" type="button" v-if="ingredientIndex > 0" @click="deleteIngredientForm(ingredientIndex)">X</button>
                     </div>
                 </div>
 
                 <div class="directionsContainer">
                     <label id="directionsLabel">Directions</label>
-                    <button id="addDirectionButton" type="button" @click="addDirectionForm">Add Another Direction</button>
+                    <button id="addDirectionButton" type="button" onClick="addDirection('allDirections');">Add Another Direction</button>
             
-                    <div class="allDirections" v-for="(direction, directionIndex) in directions">
-                        <label class="directionLabel">{{ directionIndex + 1 }}.)</label>
-                        <input class="directionInput"type="text" name="directions" v-model="direction.direction">
-                        
-                        <button class="deleteDirectionButton" type="button" v-if="directionIndex > 0" @click="deleteDirectionForm(directionIndex)">X</button>
+                    <div id="allDirections">
+                        <div class="directionSet">
+                            <input class="directionInput" type="text" name="directions[]">
+                        </div>
                     </div>
                 </div>
                 
@@ -73,7 +75,9 @@
                 
             </form>
         </div>
-
-        <script src="/controls/newRecipeControl.js"></script>
     </body>
+
+    <!-- Required scripts to run app -->
+    <script src="/controls/newRecipeControl.js"></script>
+    <script src="/controls/errorMessageControl.js"></script>
 </html>
